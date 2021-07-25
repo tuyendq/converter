@@ -1,19 +1,20 @@
-import * as React from 'react';
+import React, { useState } from 'react';
 import { StyleSheet, Text, View, Input } from 'react-native';
 import PropTypes from 'prop-types';
+// import './App.css';
 
-function Converter() {
+export default function Converter() {
     const [km, setKm] = useState(0);
 
-    Converter.defaultProps = {
-        km: 0
-    }
+    // Converter.defaultProps = {
+    //     km: 0
+    // }
 
-    Converter.propTypes = {
-        km = PropTypes.number.isRequired
-    }
+    // Converter.propTypes = {
+    //     km : PropTypes.number.isRequired
+    // }
 
-    function convert(km) {
+    function convertkm2mile(km) {
         return (km/1.609).toFixed(2);
     }
 
@@ -27,9 +28,7 @@ function Converter() {
                 type="text" value={km}
                 onChange={handleChange}
             />
-            <Text>{km} = {convert(km)} miles.</Text>
+            <Text>{km} = {convertkm2mile(km)} miles.</Text>
         </View>
     );
 }
-
-export default Converter;
